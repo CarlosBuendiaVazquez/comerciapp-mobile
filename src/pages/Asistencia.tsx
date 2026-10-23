@@ -10,8 +10,11 @@ import {
   IonBadge,
   IonAvatar,
   IonItem,
-  IonLabel
+  IonLabel,
+  IonButton,
+  IonIcon
 } from '@ionic/react';
+import { checkmarkCircleOutline } from 'ionicons/icons';
 
 const Asistencia: React.FC = () => {
   const [hora, setHora] = useState<string>('');
@@ -63,6 +66,11 @@ const Asistencia: React.FC = () => {
             </IonItem>
           </IonCardContent>
         </IonCard>
+
+        <IonButton expand="block" color="success" size="large" style={{ fontWeight: 'bold', marginBottom: '12px' }}>
+          <IonIcon slot="start" icon={checkmarkCircleOutline} />
+          Registrar Entrada / Salida
+        </IonButton>
       </IonContent>
     </IonPage>
   );
