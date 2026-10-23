@@ -12,7 +12,9 @@ import {
   IonItem,
   IonLabel,
   IonButton,
-  IonIcon
+  IonIcon,
+  IonList,
+  IonListHeader
 } from '@ionic/react';
 import { checkmarkCircleOutline, qrCodeOutline } from 'ionicons/icons';
 
@@ -76,6 +78,19 @@ const Asistencia: React.FC = () => {
           <IonIcon slot="start" icon={qrCodeOutline} />
           Escanear Código QR
         </IonButton>
+
+        <IonListHeader style={{ padding: 0, minHeight: '30px', marginBottom: '8px' }}>
+          <IonLabel style={{ fontWeight: 'bold', fontSize: '16px' }}>Marcajes de Hoy</IonLabel>
+        </IonListHeader>
+
+        <IonList lines="full" style={{ borderRadius: '8px', overflow: 'hidden' }}>
+          <IonItem>
+            <IonLabel>
+              <h2>08:31 AM</h2>
+              <p>Entrada de Turno</p>
+            </IonLabel>
+          </IonItem>
+        </IonList>
       </IonContent>
     </IonPage>
   );
