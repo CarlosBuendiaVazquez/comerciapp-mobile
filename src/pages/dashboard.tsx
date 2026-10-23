@@ -34,7 +34,7 @@ const Dashboard: React.FC = () => {
           </IonSelect>
         </IonItem>
 
-        <IonGrid style={{ padding: 0 }}>
+        <IonGrid style={{ padding: 0, marginBottom: '20px' }}>
           <IonRow>
             <IonCol size="6">
               <IonCard style={{ margin: 0 }}>
@@ -42,6 +42,15 @@ const Dashboard: React.FC = () => {
                   <p style={{ margin: 0, color: '#666', fontSize: '12px' }}>Asistencia Hoy</p>
                   <h1 style={{ margin: '8px 0', color: '#10dc60', fontWeight: 'bold' }}>94%</h1>
                   <span style={{ fontSize: '11px', color: '#888' }}>32/34 Presentes</span>
+                </IonCardContent>
+              </IonCard>
+            </IonCol>
+            <IonCol size="6">
+              <IonCard style={{ margin: 0 }}>
+                <IonCardContent>
+                  <p style={{ margin: 0, color: '#666', fontSize: '12px' }}>Alertas Stock</p>
+                  <h1 style={{ margin: '8px 0', color: '#f04141', fontWeight: 'bold' }}>8</h1>
+                  <span style={{ fontSize: '11px', color: '#f04141' }}>Stock crítico</span>
                 </IonCardContent>
               </IonCard>
             </IonCol>
