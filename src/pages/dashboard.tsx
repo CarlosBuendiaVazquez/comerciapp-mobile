@@ -12,7 +12,9 @@ import {
   IonCardContent,
   IonGrid,
   IonRow,
-  IonCol
+  IonCol,
+  IonList,
+  IonListHeader
 } from '@ionic/react';
 
 const Dashboard: React.FC = () => {
@@ -56,6 +58,14 @@ const Dashboard: React.FC = () => {
             </IonCol>
           </IonRow>
         </IonGrid>
+
+        <IonListHeader style={{ padding: 0, minHeight: '30px' }}>
+          <IonLabel style={{ fontWeight: 'bold', fontSize: '16px' }}>Actividad Reciente</IonLabel>
+        </IonListHeader>
+
+        <IonList lines="full" style={{ borderRadius: '8px', overflow: 'hidden' }}>
+          {/* Próximamente ítems del feed */}
+        </IonList>
       </IonContent>
     </IonPage>
   );
