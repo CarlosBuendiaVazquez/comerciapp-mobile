@@ -1,0 +1,2 @@
+# comerciapp-mobile
+Proyecto DESARROLLO DE APLICACIONES MOVILES HIBRIDAS
