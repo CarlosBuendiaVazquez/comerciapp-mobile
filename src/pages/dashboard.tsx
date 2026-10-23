@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   IonContent,
   IonHeader,
@@ -18,9 +19,37 @@ import {
   IonIcon,
   IonNote
 } from '@ionic/react';
-import { personCheckmarkOutline, warningOutline, cubeOutline } from 'ionicons/icons';
+import { personCheckmarkOutline, warningOutline, cubeOutline, timeOutline } from 'ionicons/icons';
+import { EventoActividad } from '../types';
+
+const mockActividad: EventoActividad[] = [
+  { id: '1', titulo: 'Carlos Mendoza', descripcion: 'Entrada registrada • Suc. Insurgentes', tiempo: 'Hace 4m', tipo: 'asistencia' },
+  { id: '2', titulo: 'Alerta Stock Crítico', descripcion: 'Aceite Nutrioli (4 pzas) • Suc. Centro', tiempo: 'Hace 12m', tipo: 'alerta' },
+  { id: '3', titulo: 'Ajuste de Mercancía', descripcion: '+50 pzas Lácteos • Suc. Polanco', tiempo: 'Hace 28m', tipo: 'inventario' },
+  { id: '4', titulo: 'Registro de Retardo', descripcion: 'Juan Gómez (+14m) • Suc. Polanco', tiempo: 'Hace 45m', tipo: 'asistencia' }
+];
 
 const Dashboard: React.FC = () => {
+  const [actividades] = useState<EventoActividad[]>(mockActividad);
+
+  const getIcon = (tipo: EventoActividad['tipo']) => {
+    switch (tipo) {
+      case 'asistencia': return personCheckmarkOutline;
+      case 'alerta': return warningOutline;
+      case 'inventario': return cubeOutline;
+      default: return timeOutline;
+    }
+  };
+
+  const getColor = (tipo: EventoActividad['tipo']) => {
+    switch (tipo) {
+      case 'asistencia': return 'success';
+      case 'alerta': return 'danger';
+      case 'inventario': return 'primary';
+      default: return 'medium';
+    }
+  };
+
   return (
     <IonPage>
       <IonHeader>
@@ -67,16 +96,20 @@ const Dashboard: React.FC = () => {
         </IonListHeader>
 
         <IonList lines="full" style={{ borderRadius: '12px', overflow: 'hidden', boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
-          <IonItem>
-            <IonIcon icon={personCheckmarkOutline} slot="start" color="success" />
-            <IonLabel>
-              <h2 style={{ fontWeight: 'bold', fontSize: '14px' }}>Carlos Mendoza</h2>
-              <p>Entrada registrada • Suc. Insurgentes</p>
-            </IonLabel>
-            <IonNote slot="end" style={{ fontSize: '12px', color: '#888' }}>Hace 4m</IonNote>
-          </IonItem>
+          {actividades.map(act => (
+            <IonItem key={act.id}>
+              <IonIcon icon={getIcon(act.tipo)} slot="start" color={getColor(act.tipo)} />
+              <IonLabel>
+                <h2 style={{ fontWeight: 'bold', fontSize: '14px' }}>{act.titulo}</h2>
+                <p>{act.descripcion}</p>
+              </IonLabel>
+              <IonNote slot="end" style={{ fontSize: '12px', color: '#888' }}>{act.tiempo}</IonNote>
+            </IonItem>
+          ))}
+        </IonList>
+      </IonContent>
+    </IonPage>
+  );
+};
 
-          <IonItem>
-            <IonIcon icon={warningOutline} slot="start" color="danger" />
-            <IonLabel>
-              <h2 style={{ fontWeight: 'bold', fontSize: '14px
+export default Dashboard;
