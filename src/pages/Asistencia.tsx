@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import {
   IonContent,
   IonHeader,
@@ -10,6 +11,18 @@ import {
 } from '@ionic/react';
 
 const Asistencia: React.FC = () => {
+  const [hora, setHora] = useState<string>('');
+
+  useEffect(() => {
+    const updateClock = () => {
+      const now = new Date();
+      setHora(now.toLocaleTimeString('es-MX'));
+    };
+    updateClock();
+    const timer = setInterval(updateClock, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <IonPage>
       <IonHeader>
@@ -27,6 +40,11 @@ const Asistencia: React.FC = () => {
             <IonBadge color="success">Abierta</IonBadge>
           </IonCardContent>
         </IonCard>
+
+        <div style={{ textAlign: 'center', margin: '20px 0' }}>
+          <p style={{ color: '#666', fontSize: '13px', margin: '0 0 4px 0' }}>Miércoles, 24 de Octubre de 2024</p>
+          <h1 style={{ fontSize: '36px', fontWeight: 'bold', color: '#0054e9', margin: 0 }}>{hora || '00:00:00 PM'}</h1>
+        </div>
       </IonContent>
     </IonPage>
   );
