@@ -7,7 +7,12 @@ import {
   IonSelect,
   IonSelectOption,
   IonItem,
-  IonLabel
+  IonLabel,
+  IonCard,
+  IonCardContent,
+  IonGrid,
+  IonRow,
+  IonCol
 } from '@ionic/react';
 
 const Dashboard: React.FC = () => {
@@ -28,6 +33,20 @@ const Dashboard: React.FC = () => {
             <IonSelectOption value="polanco">Sucursal Polanco</IonSelectOption>
           </IonSelect>
         </IonItem>
+
+        <IonGrid style={{ padding: 0 }}>
+          <IonRow>
+            <IonCol size="6">
+              <IonCard style={{ margin: 0 }}>
+                <IonCardContent>
+                  <p style={{ margin: 0, color: '#666', fontSize: '12px' }}>Asistencia Hoy</p>
+                  <h1 style={{ margin: '8px 0', color: '#10dc60', fontWeight: 'bold' }}>94%</h1>
+                  <span style={{ fontSize: '11px', color: '#888' }}>32/34 Presentes</span>
+                </IonCardContent>
+              </IonCard>
+            </IonCol>
+          </IonRow>
+        </IonGrid>
       </IonContent>
     </IonPage>
   );
