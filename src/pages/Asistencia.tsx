@@ -18,8 +18,23 @@ import {
 } from '@ionic/react';
 import { checkmarkCircleOutline, qrCodeOutline } from 'ionicons/icons';
 
+interface Marcaje {
+  id: string;
+  usuario: string;
+  hora: string;
+  tipo: 'Entrada' | 'Salida';
+  estado: 'A tiempo' | 'Retardo';
+}
+
+const mockMarcajes: Marcaje[] = [
+  { id: '1', usuario: 'Sofía Morales', hora: '08:31 AM', tipo: 'Entrada', estado: 'A tiempo' },
+  { id: '2', usuario: 'Sofía Morales', hora: '01:15 PM', tipo: 'Salida', estado: 'A tiempo' },
+  { id: '3', usuario: 'Sofía Morales', hora: '02:05 PM', tipo: 'Entrada', estado: 'Retardo' }
+];
+
 const Asistencia: React.FC = () => {
   const [hora, setHora] = useState<string>('');
+  const [marcajes] = useState<Marcaje[]>(mockMarcajes);
 
   useEffect(() => {
     const updateClock = () => {
@@ -84,20 +99,17 @@ const Asistencia: React.FC = () => {
         </IonListHeader>
 
         <IonList lines="full" style={{ borderRadius: '12px', overflow: 'hidden', boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
-          <IonItem>
-            <IonLabel>
-              <h2 style={{ fontWeight: 'bold', fontSize: '14px' }}>08:31 AM</h2>
-              <p>Entrada de Turno</p>
-            </IonLabel>
-            <IonBadge color="success" slot="end" style={{ borderRadius: '6px' }}>A tiempo</IonBadge>
-          </IonItem>
-          <IonItem>
-            <IonLabel>
-              <h2 style={{ fontWeight: 'bold', fontSize: '14px' }}>02:05 PM</h2>
-              <p>Regreso de Comida</p>
-            </IonLabel>
-            <IonBadge color="warning" slot="end" style={{ borderRadius: '6px' }}>Retardo</IonBadge>
-          </IonItem>
+          {marcajes.map(m => (
+            <IonItem key={m.id}>
+              <IonLabel>
+                <h2 style={{ fontWeight: 'bold', fontSize: '14px' }}>{m.hora}</h2>
+                <p>{m.tipo === 'Entrada' ? 'Entrada de Turno' : 'Salida de Turno'}</p>
+              </IonLabel>
+              <IonBadge color={m.estado === 'A tiempo' ? 'success' : 'warning'} slot="end" style={{ borderRadius: '6px' }}>
+                {m.estado}
+              </IonBadge>
+            </IonItem>
+          ))}
         </IonList>
       </IonContent>
     </IonPage>
