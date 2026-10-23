@@ -19,7 +19,7 @@ import {
   IonIcon,
   IonNote
 } from '@ionic/react';
-import { personCheckmarkOutline, warningOutline, cubeOutline, timeOutline } from 'ionicons/icons';
+import { checkmarkDoneOutline, warningOutline, cubeOutline, timeOutline } from 'ionicons/icons';
 import { EventoActividad } from '../types';
 
 const mockActividad: EventoActividad[] = [
@@ -34,7 +34,7 @@ const Dashboard: React.FC = () => {
 
   const getIcon = (tipo: EventoActividad['tipo']) => {
     switch (tipo) {
-      case 'asistencia': return personCheckmarkOutline;
+      case 'asistencia': return checkmarkDoneOutline;
       case 'alerta': return warningOutline;
       case 'inventario': return cubeOutline;
       default: return timeOutline;
@@ -57,7 +57,7 @@ const Dashboard: React.FC = () => {
           <IonTitle>ComerciApp - Dashboard</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent className="ion-padding" style={{ '--background': '#f4f5f8' }}>
+      <IonContent className="ion-padding">
         <IonItem lines="none" style={{ borderRadius: '12px', marginBottom: '16px', border: '1px solid #e0e0e0', boxShadow: '0 2px 6px rgba(0,0,0,0.04)' }}>
           <IonLabel style={{ fontWeight: 'bold', fontSize: '14px' }}>Sucursal:</IonLabel>
           <IonSelect defaultValue="todas" interface="popover" style={{ fontSize: '14px' }}>
