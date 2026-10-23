@@ -7,7 +7,10 @@ import {
   IonToolbar,
   IonCard,
   IonCardContent,
-  IonBadge
+  IonBadge,
+  IonAvatar,
+  IonItem,
+  IonLabel
 } from '@ionic/react';
 
 const Asistencia: React.FC = () => {
@@ -45,6 +48,21 @@ const Asistencia: React.FC = () => {
           <p style={{ color: '#666', fontSize: '13px', margin: '0 0 4px 0' }}>Miércoles, 24 de Octubre de 2024</p>
           <h1 style={{ fontSize: '36px', fontWeight: 'bold', color: '#0054e9', margin: 0 }}>{hora || '00:00:00 PM'}</h1>
         </div>
+
+        <IonCard style={{ margin: 0, marginBottom: '20px' }}>
+          <IonCardContent>
+            <IonItem lines="none" style={{ '--padding-start': 0 }}>
+              <IonAvatar slot="start">
+                <img alt="Avatar" src="https://ionicframework.com/docs/img/demos/avatar.ionic.png" />
+              </IonAvatar>
+              <IonLabel>
+                <h2 style={{ fontWeight: 'bold' }}>Sofía Morales Valdez</h2>
+                <p>Encargada de Turno • Sucursal Centro</p>
+                <IonBadge color="success" style={{ marginTop: '6px' }}>• En Turno Activo</IonBadge>
+              </IonLabel>
+            </IonItem>
+          </IonCardContent>
+        </IonCard>
       </IonContent>
     </IonPage>
   );
