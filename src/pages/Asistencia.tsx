@@ -89,6 +89,14 @@ const Asistencia: React.FC = () => {
               <h2>08:31 AM</h2>
               <p>Entrada de Turno</p>
             </IonLabel>
+            <IonBadge color="success" slot="end">A tiempo</IonBadge>
+          </IonItem>
+          <IonItem>
+            <IonLabel>
+              <h2>02:05 PM</h2>
+              <p>Regreso de Comida</p>
+            </IonLabel>
+            <IonBadge color="warning" slot="end">Retardo</IonBadge>
           </IonItem>
         </IonList>
       </IonContent>
