@@ -14,7 +14,7 @@ import {
   IonButton,
   IonIcon
 } from '@ionic/react';
-import { checkmarkCircleOutline } from 'ionicons/icons';
+import { checkmarkCircleOutline, qrCodeOutline } from 'ionicons/icons';
 
 const Asistencia: React.FC = () => {
   const [hora, setHora] = useState<string>('');
@@ -70,6 +70,11 @@ const Asistencia: React.FC = () => {
         <IonButton expand="block" color="success" size="large" style={{ fontWeight: 'bold', marginBottom: '12px' }}>
           <IonIcon slot="start" icon={checkmarkCircleOutline} />
           Registrar Entrada / Salida
+        </IonButton>
+
+        <IonButton expand="block" fill="outline" color="primary" style={{ marginBottom: '24px' }}>
+          <IonIcon slot="start" icon={qrCodeOutline} />
+          Escanear Código QR
         </IonButton>
       </IonContent>
     </IonPage>
