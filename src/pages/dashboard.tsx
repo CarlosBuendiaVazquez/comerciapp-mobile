@@ -14,8 +14,11 @@ import {
   IonRow,
   IonCol,
   IonList,
-  IonListHeader
+  IonListHeader,
+  IonIcon,
+  IonNote
 } from '@ionic/react';
+import { personCheckmarkOutline, warningOutline, cubeOutline } from 'ionicons/icons';
 
 const Dashboard: React.FC = () => {
   return (
@@ -64,7 +67,32 @@ const Dashboard: React.FC = () => {
         </IonListHeader>
 
         <IonList lines="full" style={{ borderRadius: '8px', overflow: 'hidden' }}>
-          {/* Próximamente ítems del feed */}
+          <IonItem>
+            <IonIcon icon={personCheckmarkOutline} slot="start" color="success" />
+            <IonLabel>
+              <h2>Carlos Mendoza</h2>
+              <p>Entrada registrada • Suc. Insurgentes</p>
+            </IonLabel>
+            <IonNote slot="end" style={{ fontSize: '12px' }}>Hace 4m</IonNote>
+          </IonItem>
+
+          <IonItem>
+            <IonIcon icon={warningOutline} slot="start" color="danger" />
+            <IonLabel>
+              <h2>Alerta Stock Crítico</h2>
+              <p>Aceite Nutrioli (4 pzas) • Suc. Centro</p>
+            </IonLabel>
+            <IonNote slot="end" style={{ fontSize: '12px' }}>Hace 12m</IonNote>
+          </IonItem>
+
+          <IonItem>
+            <IonIcon icon={cubeOutline} slot="start" color="primary" />
+            <IonLabel>
+              <h2>Ajuste de Mercancía</h2>
+              <p>+50 pzas Lácteos • Suc. Polanco</p>
+            </IonLabel>
+            <IonNote slot="end" style={{ fontSize: '12px' }}>Hace 28m</IonNote>
+          </IonItem>
         </IonList>
       </IonContent>
     </IonPage>
