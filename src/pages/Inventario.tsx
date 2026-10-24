@@ -9,8 +9,11 @@ import {
   IonLabel,
   IonCard,
   IonCardContent,
-  IonBadge
+  IonBadge,
+  IonButton,
+  IonIcon
 } from '@ionic/react';
+import { addOutline, removeOutline } from 'ionicons/icons';
 
 const Inventario: React.FC = () => {
   return (
@@ -39,6 +42,15 @@ const Inventario: React.FC = () => {
                 <h3 style={{ margin: 0, fontWeight: 'bold' }}>Aceite Vegetal 1L</h3>
                 <p style={{ margin: '4px 0', color: '#666', fontSize: '12px' }}>SKU: AB-9821</p>
                 <IonBadge color="danger">Stock Bajo</IonBadge>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <IonButton size="small" fill="outline">
+                  <IonIcon slot="icon-only" icon={removeOutline} />
+                </IonButton>
+                <strong style={{ fontSize: '16px' }}>4 pzas</strong>
+                <IonButton size="small" fill="solid">
+                  <IonIcon slot="icon-only" icon={addOutline} />
+                </IonButton>
               </div>
             </div>
           </IonCardContent>
