@@ -18,7 +18,7 @@ import {
 } from '@ionic/react';
 import { addOutline, removeOutline, qrCodeOutline } from 'ionicons/icons';
 import { scanBarcode } from '../services/qrService';
-
+import './Inventario.css';
 interface Producto {
   id: string;
   nombre: string;
