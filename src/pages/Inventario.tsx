@@ -3,7 +3,8 @@ import {
   IonHeader,
   IonPage,
   IonTitle,
-  IonToolbar
+  IonToolbar,
+  IonSearchbar
 } from '@ionic/react';
 
 const Inventario: React.FC = () => {
@@ -15,7 +16,7 @@ const Inventario: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
-        <h2>Módulo de Inventario</h2>
+        <IonSearchbar placeholder="Buscar por nombre, SKU o código..." />
       </IonContent>
     </IonPage>
   );
