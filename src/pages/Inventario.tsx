@@ -6,7 +6,9 @@ import {
   IonToolbar,
   IonSearchbar,
   IonChip,
-  IonLabel
+  IonLabel,
+  IonCard,
+  IonCardContent
 } from '@ionic/react';
 
 const Inventario: React.FC = () => {
@@ -28,6 +30,17 @@ const Inventario: React.FC = () => {
             <IonLabel>• Stock Bajo</IonLabel>
           </IonChip>
         </div>
+
+        <IonCard>
+          <IonCardContent>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div>
+                <h3 style={{ margin: 0, fontWeight: 'bold' }}>Aceite Vegetal 1L</h3>
+                <p style={{ margin: '4px 0', color: '#666', fontSize: '12px' }}>SKU: AB-9821</p>
+              </div>
+            </div>
+          </IonCardContent>
+        </IonCard>
       </IonContent>
     </IonPage>
   );
