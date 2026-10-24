@@ -8,7 +8,8 @@ import {
   IonChip,
   IonLabel,
   IonCard,
-  IonCardContent
+  IonCardContent,
+  IonBadge
 } from '@ionic/react';
 
 const Inventario: React.FC = () => {
@@ -37,6 +38,7 @@ const Inventario: React.FC = () => {
               <div>
                 <h3 style={{ margin: 0, fontWeight: 'bold' }}>Aceite Vegetal 1L</h3>
                 <p style={{ margin: '4px 0', color: '#666', fontSize: '12px' }}>SKU: AB-9821</p>
+                <IonBadge color="danger">Stock Bajo</IonBadge>
               </div>
             </div>
           </IonCardContent>
