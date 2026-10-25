@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Navigate } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import {
   IonApp,
   IonIcon,
@@ -8,6 +8,7 @@ import {
   IonTabBar,
   IonTabButton,
   IonTabs,
+  IonRedirect,
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
@@ -44,7 +45,9 @@ const App: React.FC = () => (
           <Route exact path="/asistencia" component={Asistencia} />
           <Route exact path="/inventario" component={Inventario} />
           <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/" render={() => <Navigate to="/asistencia" />} />
+          <Route exact path="/">
+            <IonRedirect to="/asistencia" />
+          </Route>
         </IonRouterOutlet>
 
         <IonTabBar slot="bottom">
