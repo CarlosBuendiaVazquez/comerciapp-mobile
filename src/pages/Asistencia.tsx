@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   IonContent,
   IonHeader,
@@ -78,7 +78,7 @@ const Asistencia: React.FC = () => {
               <IonLabel>
                 <h2 style={{ fontWeight: 'bold', fontSize: '15px' }}>Sofía Morales Valdez</h2>
                 <p style={{ fontSize: '13px' }}>Encargada de Turno • Sucursal Centro</p>
-                <IonBadge color="success" style={{ marginTop: '6px', borderRadius: '6px' }}>• En Turno Activo</IonBadge>
+                <IonBadge color="success" style={{ marginTop: '6px', borderRadius: '6px' }}>En Turno Activo</IonBadge>
               </IonLabel>
             </IonItem>
           </IonCardContent>
